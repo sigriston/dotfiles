@@ -21,94 +21,118 @@ filetype off
 " runtimepath for vundle
 set rtp+=~/.vim/bundle/vundle/
 
-" assume we can't install vundle
+" assume we don't have vundle
 let s:has_vundle = 0
+
+" assume we don't need to bootstrap vundle
+let s:bootstrap_vundle = 0
+
+" check if vundle is present
+if isdirectory(glob("~/.vim/bundle/vundle"))
+    let s:has_vundle = 1
+endif   " <vundle is present>
 
 " install vundle if not present
 " inspired by http://gist.github.com/frasertweedale/8265874
 " and by http://mg.pov.lt/vim/vimrc
-if !exists("*vundle#rc")
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-    redraw!
-endif " !exists("*vundle#rc")
+" TODO: Windows?!?
+if !s:has_vundle
+    " install vundle iff git is present
+    if filereadable(glob("`which git`"))
+        silent !mkdir -p ~/.vim/bundle
+        silent !git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+        redraw!
+        let s:has_vundle = 1
+        let s:bootstrap_vundle = 1
+    endif   " <git is present>
+endif   " !s:has_vundle
 
-" start vundle
-call vundle#rc()
+if s:has_vundle
+    " start vundle
+    call vundle#rc()
 
-" vundle manages vundle
-Bundle 'gmarik/vundle'
+    " vundle manages vundle
+    Plugin 'gmarik/vundle'
 
-" My Bundles here:
+    " My Plugins here:
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'Lokaltog/vim-easymotion'
+    Plugin 'scrooloose/nerdcommenter'
+    Plugin 'myusuf3/numbers.vim'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'kien/ctrlp.vim'
+    Plugin 'scrooloose/syntastic'
+    Plugin 'tpope/vim-abolish'
+    Plugin 'maxbrunsfeld/vim-yankstack'
+    Plugin 'tpope/vim-surround'
+    Plugin 'tpope/vim-repeat'
+    Plugin 'altercation/vim-colors-solarized'
+    Plugin 'w0ng/vim-hybrid'
+    Plugin 'zeis/vim-kolor'
+    Plugin 'jonathanfilip/vim-lucius'
+    Plugin 'morhetz/gruvbox'
+    Plugin 'vim-scripts/summerfruit256.vim'
+    Plugin 'kien/rainbow_parentheses.vim'
+    Plugin 'godlygeek/tabular'
+    Plugin 'SirVer/ultisnips'
+    Plugin 'honza/vim-snippets'
+    Plugin 'bling/vim-airline'
+    Plugin 'tristen/vim-sparkup'
+    Plugin 'rking/ag.vim'
+    Plugin 'nathanaelkane/vim-indent-guides'
+    Plugin 'mhinz/vim-signify'
+    Plugin 'mbbill/undotree'
+    Plugin 'mutewinter/swap-parameters'
+    Plugin 'Valloric/YouCompleteMe'
+    Plugin 'mhinz/vim-startify'
+    Plugin 'digitaltoad/vim-jade'
+    Plugin 'wavded/vim-stylus'
+    Plugin 'milkypostman/vim-togglelist'
+    Plugin 'mattn/webapi-vim'
+    Plugin 'mattn/gist-vim'
+    Plugin 'nelstrom/vim-visual-star-search'
+    Plugin 'sk1418/Join'
+    Plugin 'benmills/vimux'
+    Plugin 'rizzatti/funcoo.vim'
+    Plugin 'rizzatti/dash.vim'
+    Plugin 'osyo-manga/vim-anzu'
+    Plugin 'Valloric/MatchTagAlways'
+    Plugin 'kballenegger/vim-autoreadwatch'
+    Plugin 'klen/python-mode'
+    Plugin 'tpope/vim-unimpaired'
+    Plugin 'gregsexton/gitv'
+    Plugin 'tpope/vim-speeddating'
+    "Plugin 'tpope/vim-endwise' - is there a way to enable it only for certain
+    "filetypes?
+    Plugin 'tpope/vim-markdown'
+    Plugin 'editorconfig/editorconfig-vim'
+    Plugin 'rodjek/vim-puppet'
+    Plugin 'pangloss/vim-javascript'
+    Plugin 'Raimondi/delimitMate'
+    Plugin 'marijnh/tern_for_vim'
+    Plugin 'mustache/vim-mustache-handlebars'
+    Plugin 'elzr/vim-json'
+    Plugin 'maksimr/vim-jsbeautify'
+    Plugin 'majutsushi/tagbar'
+    Plugin 'kchmck/vim-coffee-script'
+    Plugin 'groenewege/vim-less'
+    Plugin 'gkz/vim-ls'
 
-" original repos on github
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-abolish'
-Bundle 'maxbrunsfeld/vim-yankstack'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'w0ng/vim-hybrid'
-Bundle 'zeis/vim-kolor'
-Bundle 'jonathanfilip/vim-lucius'
-Bundle 'morhetz/gruvbox'
-Bundle 'vim-scripts/summerfruit256.vim'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'bling/vim-airline'
-Bundle 'tristen/vim-sparkup'
-Bundle 'rking/ag.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'mhinz/vim-signify'
-Bundle 'mbbill/undotree'
-Bundle 'mutewinter/swap-parameters'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'mhinz/vim-startify'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'wavded/vim-stylus'
-Bundle 'milkypostman/vim-togglelist'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Bundle 'nelstrom/vim-visual-star-search'
-Bundle 'sk1418/Join'
-Bundle 'benmills/vimux'
-Bundle 'rizzatti/funcoo.vim'
-Bundle 'rizzatti/dash.vim'
-Bundle 'osyo-manga/vim-anzu'
-Bundle 'Valloric/MatchTagAlways'
-Bundle 'kballenegger/vim-autoreadwatch'
-Bundle 'klen/python-mode'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'gregsexton/gitv'
-Bundle 'tpope/vim-speeddating'
-"Bundle 'tpope/vim-endwise' - is there a way to enable it only for certain
-"filetypes?
-Bundle 'tpope/vim-markdown'
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'rodjek/vim-puppet'
-Bundle 'pangloss/vim-javascript'
-Bundle 'Raimondi/delimitMate'
-Bundle 'marijnh/tern_for_vim'
-Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'elzr/vim-json'
-Bundle 'maksimr/vim-jsbeautify'
-Bundle 'majutsushi/tagbar'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'groenewege/vim-less'
-Bundle 'gkz/vim-ls'
+    " bootstrap vundle if we have to
+    if s:bootstrap_vundle
+        " install all plugins
+        silent PluginInstall
+        quit
+
+        " compile YCM
+        silent !(cd ~/.vim/bundle/YouCompleteMe; ./install.sh)
+    endif   " s:bootstrap_vundle
+endif   " s:has_vundle
 
 " Favorite colorscheme
 let g:solarized_termcolors=256
 let g:kolor_underlined=1
-colorscheme solarized
+silent! colorscheme solarized
 
 " Detects file type and enables language-specific indentation
 " Syntax highlighting always on
@@ -178,106 +202,109 @@ autocmd FileType c,h,cpp,hpp,w set cindent
 "   - t0: indent a function return type declaration 0 chars from the margin.
 set cinoptions=l1(0U1t0
 
-" runtimepath for CtrlP
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+" plugin configurations
+if s:has_vundle
+    " runtimepath for CtrlP
+    set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-" open CtrlP in mixed mode by default
-let g:ctrlp_cmd = 'CtrlPMixed'
+    " open CtrlP in mixed mode by default
+    let g:ctrlp_cmd = 'CtrlPMixed'
 
-" Mapping for NERDTree
-nnoremap <Leader>n :NERDTreeToggle<CR>
+    " Mapping for NERDTree
+    nnoremap <Leader>n :NERDTreeToggle<CR>
 
-" Mapping for undotree
-nnoremap <F5> :UndotreeToggle<CR>
+    " Mapping for undotree
+    nnoremap <F5> :UndotreeToggle<CR>
 
-" Tabularize mappings.
-if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
-endif
+    " Tabularize mappings.
+    if exists(":Tabularize")
+        nmap <Leader>a= :Tabularize /=<CR>
+        vmap <Leader>a= :Tabularize /=<CR>
+        nmap <Leader>a: :Tabularize /:\zs<CR>
+        vmap <Leader>a: :Tabularize /:\zs<CR>
+    endif   " exists(":Tabularize")
 
-" UltiSnips config to avoid conflict with YouCompleteMe.
-let g:UltiSnipsExpandTrigger = "<C-j>"
+    " UltiSnips config to avoid conflict with YouCompleteMe.
+    let g:UltiSnipsExpandTrigger = "<C-j>"
 
-" vim-startify custom header
-let g:startify_custom_header = [
-\ "        ________ ++     ________",
-\ "       /VVVVVVVV\\++++  /VVVVVVVV\\",
-\ "       \\VVVVVVVV/++++++\\VVVVVVVV/",
-\ "        |VVVVVV|++++++++/VVVVV/'",
-\ "        |VVVVVV|++++++/VVVVV/'",
-\ "       +|VVVVVV|++++/VVVVV/'+",
-\ "     +++|VVVVVV|++/VVVVV/'+++++",
-\ "   +++++|VVVVVV|/VVVVV/'+++++++++",
-\ "     +++|VVVVVVVVVVV/'+++++++++",
-\ "       +|VVVVVVVVV/'+++++++++",
-\ "        |VVVVVVV/'+++++++++",
-\ "        |VVVVV/'+++++++++",
-\ "        |VVV/'+++++++++",
-\ "        'V/'   ++++++",
-\ "                 ++",
-\ "",
-\ ]
+    " vim-startify custom header
+    let g:startify_custom_header = [
+    \ "        ________ ++     ________",
+    \ "       /VVVVVVVV\\++++  /VVVVVVVV\\",
+    \ "       \\VVVVVVVV/++++++\\VVVVVVVV/",
+    \ "        |VVVVVV|++++++++/VVVVV/'",
+    \ "        |VVVVVV|++++++/VVVVV/'",
+    \ "       +|VVVVVV|++++/VVVVV/'+",
+    \ "     +++|VVVVVV|++/VVVVV/'+++++",
+    \ "   +++++|VVVVVV|/VVVVV/'+++++++++",
+    \ "     +++|VVVVVVVVVVV/'+++++++++",
+    \ "       +|VVVVVVVVV/'+++++++++",
+    \ "        |VVVVVVV/'+++++++++",
+    \ "        |VVVVV/'+++++++++",
+    \ "        |VVV/'+++++++++",
+    \ "        'V/'   ++++++",
+    \ "                 ++",
+    \ "",
+    \ ]
 
-" Enable line numbers.
-set number
+    " Enable line numbers.
+    set number
 
-" Enable current-line highlighting
-set cursorline
+    " Enable current-line highlighting
+    set cursorline
 
-" python-mode
-let g:pymode_rope = 0
-let g:pymode_lint = 0
-let g:pymode_lint_write = 0
-let g:pymode_virtualenv = 1
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
+    " python-mode
+    let g:pymode_rope = 0
+    let g:pymode_lint = 0
+    let g:pymode_lint_write = 0
+    let g:pymode_virtualenv = 1
+    let g:pymode_syntax = 1
+    let g:pymode_syntax_all = 1
 
-" Close preview window when done inserting.
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
+    " Close preview window when done inserting.
+    let g:ycm_add_preview_to_completeopt = 1
+    let g:ycm_autoclose_preview_window_after_insertion = 1
 
-" anzu setup (plugin that shows number of occurrences when searching)
-" mapping
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
-nmap * <Plug>(anzu-star-with-echo)
-nmap # <Plug>(anzu-sharp-with-echo)
+    " anzu setup (plugin that shows number of occurrences when searching)
+    " mapping
+    nmap n <Plug>(anzu-n-with-echo)
+    nmap N <Plug>(anzu-N-with-echo)
+    nmap * <Plug>(anzu-star-with-echo)
+    nmap # <Plug>(anzu-sharp-with-echo)
 
-" clear status
-nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+    " clear status
+    nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
 
-" statusline
-set statusline=%{anzu#search_status()}
+    " statusline
+    set statusline=%{anzu#search_status()}
 
-" delimitMate stuff
-let delimitMate_expand_cr = 2
-let delimitMate_expand_space = 1
-let delimitMate_jump_expansion = 1
-let delimitMate_balance_matchpairs = 1
+    " delimitMate stuff
+    let delimitMate_expand_cr = 2
+    let delimitMate_expand_space = 1
+    let delimitMate_jump_expansion = 1
+    let delimitMate_balance_matchpairs = 1
 
-" syntastic stuff
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['html'] }
+    " syntastic stuff
+    let g:syntastic_mode_map = { 'mode': 'active',
+                               \ 'active_filetypes': [],
+                               \ 'passive_filetypes': ['html'] }
 
-" Dash search
-nmap <Leader>] <Plug>DashSearch
-vmap <Leader>] <Plug>DashSearch
+    " Dash search
+    nmap <Leader>] <Plug>DashSearch
+    vmap <Leader>] <Plug>DashSearch
 
-" Tagbar stuff
-nnoremap <Leader>t :TagbarToggle<CR>
+    " Tagbar stuff
+    nnoremap <Leader>t :TagbarToggle<CR>
 
-" Fugitive stuff
-nnoremap <F7> :Gstatus<CR>
+    " Fugitive stuff
+    nnoremap <F7> :Gstatus<CR>
 
-" Rainbow Parenthesis
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+    " Rainbow Parenthesis
+    au VimEnter * RainbowParenthesesToggle
+    au Syntax * RainbowParenthesesLoadRound
+    au Syntax * RainbowParenthesesLoadSquare
+    au Syntax * RainbowParenthesesLoadBraces
+endif   " s:has_vundle
 
 " Automatic formatting of comments in C
 " Non-default options here are:
