@@ -39,6 +39,7 @@ endif   " <vundle is present>
 if !s:has_vundle
     " install vundle iff git is present
     if filereadable(glob("`which git`"))
+        set nomore
         silent !mkdir -p ~/.vim/bundle
         silent !git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
         redraw!
