@@ -1,0 +1,271 @@
+" ********************************************
+" * Thiago Massariolli Sigrist's .vimrc file *
+" ********************************************
+
+" (L) Thiago Massariolli Sigrist 2007-2014
+" ----------------------------------------
+
+" **************************************************************************** 
+" **************************************************************************** 
+
+
+" Basic Settings
+" --------------
+
+" Be iMproved!
+set nocompatible
+
+" Use vundle
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" vundle manages vundle
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+
+" original repos on github
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'myusuf3/numbers.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-abolish'
+Bundle 'maxbrunsfeld/vim-yankstack'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'w0ng/vim-hybrid'
+Bundle 'zeis/vim-kolor'
+Bundle 'jonathanfilip/vim-lucius'
+Bundle 'morhetz/gruvbox'
+Bundle 'vim-scripts/summerfruit256.vim'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'godlygeek/tabular'
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+Bundle 'bling/vim-airline'
+Bundle 'tristen/vim-sparkup'
+Bundle 'rking/ag.vim'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'mhinz/vim-signify'
+Bundle 'mbbill/undotree'
+Bundle 'mutewinter/swap-parameters'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'mhinz/vim-startify'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'wavded/vim-stylus'
+Bundle 'milkypostman/vim-togglelist'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+Bundle 'nelstrom/vim-visual-star-search'
+Bundle 'sk1418/Join'
+Bundle 'benmills/vimux'
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
+Bundle 'osyo-manga/vim-anzu'
+Bundle 'Valloric/MatchTagAlways'
+Bundle 'kballenegger/vim-autoreadwatch'
+Bundle 'klen/python-mode'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'gregsexton/gitv'
+Bundle 'tpope/vim-speeddating'
+"Bundle 'tpope/vim-endwise' - is there a way to enable it only for certain
+"filetypes?
+Bundle 'tpope/vim-markdown'
+Bundle 'editorconfig/editorconfig-vim'
+Bundle 'rodjek/vim-puppet'
+Bundle 'pangloss/vim-javascript'
+Bundle 'Raimondi/delimitMate'
+Bundle 'marijnh/tern_for_vim'
+Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'elzr/vim-json'
+Bundle 'maksimr/vim-jsbeautify'
+Bundle 'majutsushi/tagbar'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'groenewege/vim-less'
+Bundle 'gkz/vim-ls'
+
+" Favorite colorscheme
+let g:solarized_termcolors=256
+let g:kolor_underlined=1
+colorscheme solarized
+
+" Detects file type and enables language-specific indentation
+" Syntax highlighting always on
+syntax on
+filetype plugin indent on
+
+" Setup airline
+set encoding=utf-8
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts=1
+
+" Ruler always off
+"set noruler
+
+" statusline always visible
+set laststatus=2
+set noshowmode
+
+" Automatic indentation on new line
+set autoindent
+
+" Expands tabs/indents to 4 characters
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+" Smart line breaking
+set linebreak
+
+" Backspace options
+set backspace=indent,eol,start
+
+" Fold when markers are present
+set foldmethod=marker
+
+" Search highlighting and smartcase options
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" Wildmenu FTW
+set wildmenu
+
+" Key bindings
+map <F10> :qa<return>
+
+" Virtual edit for visual blocks.
+set virtualedit=block
+
+" Use C syntax for .w files
+let g:filetype_w = 'c'
+
+" C-style indentation
+autocmd FileType c,h,cpp,hpp,w set cindent
+
+" C-style indentation options
+" Non-default options here are:
+"   - l1: align with a case label instead of the statement after it in the
+"         same line. This is to have case blocks have the same indent whether
+"         they have curly braces or not.
+"   - (0: always have alignment match first non-white character in unopened
+"         parentheses.
+"   - U1: do the parens indenting even if the unopened parens is the last
+"         character in its line.
+"   - t0: indent a function return type declaration 0 chars from the margin.
+set cinoptions=l1(0U1t0
+
+" runtimepath for CtrlP
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" open CtrlP in mixed mode by default
+let g:ctrlp_cmd = 'CtrlPMixed'
+
+" Mapping for NERDTree
+nnoremap <Leader>n :NERDTreeToggle<CR>
+
+" Mapping for undotree
+nnoremap <F5> :UndotreeToggle<CR>
+
+" Tabularize mappings.
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
+
+" UltiSnips config to avoid conflict with YouCompleteMe.
+let g:UltiSnipsExpandTrigger = "<C-j>"
+
+" vim-startify custom header
+let g:startify_custom_header = [
+\ "        ________ ++     ________",
+\ "       /VVVVVVVV\\++++  /VVVVVVVV\\",
+\ "       \\VVVVVVVV/++++++\\VVVVVVVV/",
+\ "        |VVVVVV|++++++++/VVVVV/'",
+\ "        |VVVVVV|++++++/VVVVV/'",
+\ "       +|VVVVVV|++++/VVVVV/'+",
+\ "     +++|VVVVVV|++/VVVVV/'+++++",
+\ "   +++++|VVVVVV|/VVVVV/'+++++++++",
+\ "     +++|VVVVVVVVVVV/'+++++++++",
+\ "       +|VVVVVVVVV/'+++++++++",
+\ "        |VVVVVVV/'+++++++++",
+\ "        |VVVVV/'+++++++++",
+\ "        |VVV/'+++++++++",
+\ "        'V/'   ++++++",
+\ "                 ++",
+\ "",
+\ ]
+
+" Enable line numbers.
+set number
+
+" Enable current-line highlighting
+set cursorline
+
+" python-mode
+let g:pymode_rope = 0
+let g:pymode_lint = 0
+let g:pymode_lint_write = 0
+let g:pymode_virtualenv = 1
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+
+" Close preview window when done inserting.
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" anzu setup (plugin that shows number of occurrences when searching)
+" mapping
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
+
+" clear status
+nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+
+" statusline
+set statusline=%{anzu#search_status()}
+
+" delimitMate stuff
+let delimitMate_expand_cr = 2
+let delimitMate_expand_space = 1
+let delimitMate_jump_expansion = 1
+let delimitMate_balance_matchpairs = 1
+
+" syntastic stuff
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': [],
+                           \ 'passive_filetypes': ['html'] }
+
+" Dash search
+nmap <Leader>] <Plug>DashSearch
+vmap <Leader>] <Plug>DashSearch
+
+" Tagbar stuff
+nnoremap <Leader>t :TagbarToggle<CR>
+
+" Fugitive stuff
+nnoremap <F7> :Gstatus<CR>
+
+" Rainbow Parenthesis
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" Automatic formatting of comments in C
+" Non-default options here are:
+"   - a: does automatic formatting of comment paragraphs.
+"   - 1: prefers to line wrap before 1-letter words.
+autocmd FileType c,h,cpp,hpp,w set formatoptions=acroql1

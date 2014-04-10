@@ -1,0 +1,58 @@
+" *********************************************
+" * Thiago Massariolli Sigrist's .gvimrc file *
+" *********************************************
+
+" (L) Thiago Massariolli Sigrist 2010
+" -----------------------------------
+
+" **************************************************************************** 
+" **************************************************************************** 
+
+
+" Basic Settings
+" --------------
+
+" Set window size of gui vim
+set lines=60
+set co=132
+
+" Non-blinking cursor
+set gcr=a:blinkon0
+
+" GUI options
+" -----------
+
+" Windows options
+if has("gui_win32")
+
+    " Favorite Windows font
+    set gfn=Consolas:h10:cANSI
+
+    " GUI options
+    set go=eigrR
+
+endif
+
+" Mac options
+if has("gui_macvim")
+
+    " Favorite Mac font
+    "set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h12
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
+
+    " GUI options
+    set go=eigmrR
+
+endif
+
+" Ubuntu options
+if has("gui_gtk")
+
+    " Favorite Linux font
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+
+    " GUI options
+    set go=eigmrR
+
+endif
+
