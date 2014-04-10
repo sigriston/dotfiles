@@ -9,16 +9,31 @@
 " **************************************************************************** 
 
 
-" Basic Settings
-" --------------
-
 " Be iMproved!
 set nocompatible
 
-" Use vundle
+
+" Incantations for vundle
+" -----------------------
+
 filetype off
 
+" runtimepath for vundle
 set rtp+=~/.vim/bundle/vundle/
+
+" assume we can't install vundle
+let s:has_vundle = 0
+
+" install vundle if not present
+" inspired by http://gist.github.com/frasertweedale/8265874
+" and by http://mg.pov.lt/vim/vimrc
+if !exists("*vundle#rc")
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    redraw!
+endif " !exists("*vundle#rc")
+
+" start vundle
 call vundle#rc()
 
 " vundle manages vundle
