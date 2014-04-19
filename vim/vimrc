@@ -1,21 +1,20 @@
+" vim:fdm=marker
 " ********************************************
 " * Thiago Massariolli Sigrist's .vimrc file *
 " ********************************************
 
-" (L) Thiago Massariolli Sigrist 2007-2014
-" ----------------------------------------
+"   (L) Thiago Massariolli Sigrist 2007-2014
+"   ----------------------------------------
 
-" **************************************************************************** 
-" **************************************************************************** 
+" ********************************************
+" ********************************************
 
 
 " Be iMproved!
 set nocompatible
 
 
-" Incantations for vundle
-" -----------------------
-
+" Bootstrap Vundle {{{1
 filetype off
 
 " runtimepath for vundle
@@ -52,73 +51,110 @@ if s:has_vundle
     " start vundle
     call vundle#rc()
 
-    " vundle manages vundle
+    " Vundle Plugins {{{1
+    " vundle manages vundle {{{2
     Plugin 'gmarik/vundle'
 
     " My Plugins here:
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'Lokaltog/vim-easymotion'
-    Plugin 'scrooloose/nerdcommenter'
-    Plugin 'myusuf3/numbers.vim'
-    Plugin 'scrooloose/nerdtree'
-    Plugin 'kien/ctrlp.vim'
-    Plugin 'scrooloose/syntastic'
-    Plugin 'tpope/vim-abolish'
-    Plugin 'maxbrunsfeld/vim-yankstack'
-    Plugin 'tpope/vim-surround'
-    Plugin 'tpope/vim-repeat'
+    " Libraries {{{2
+    Plugin 'mattn/webapi-vim'
+    Plugin 'rizzatti/funcoo.vim'
+
+    " Colorschemes {{{2
     Plugin 'altercation/vim-colors-solarized'
     Plugin 'w0ng/vim-hybrid'
     Plugin 'zeis/vim-kolor'
     Plugin 'jonathanfilip/vim-lucius'
     Plugin 'morhetz/gruvbox'
     Plugin 'vim-scripts/summerfruit256.vim'
+
+    " Motion {{{2
+    Plugin 'Lokaltog/vim-easymotion'
+    Plugin 'tpope/vim-unimpaired'
+
+    " Search & Tags {{{2
+    Plugin 'nelstrom/vim-visual-star-search'
+    Plugin 'osyo-manga/vim-anzu'
+    Plugin 'rking/ag.vim'
+    Plugin 'majutsushi/tagbar'
+
+    " Git / GitHub / VCS {{{2
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'mhinz/vim-signify'
+    Plugin 'gregsexton/gitv'
+    Plugin 'mattn/gist-vim'
+
+    " File Browsing {{{2
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'kien/ctrlp.vim'
+
+    " Appearance {{{2
+    Plugin 'myusuf3/numbers.vim'
     Plugin 'kien/rainbow_parentheses.vim'
-    Plugin 'godlygeek/tabular'
+    Plugin 'bling/vim-airline'
+    Plugin 'nathanaelkane/vim-indent-guides'
+    Plugin 'mhinz/vim-startify'
+
+    " Completion & Snippets {{{2
     Plugin 'SirVer/ultisnips'
     Plugin 'honza/vim-snippets'
-    Plugin 'bling/vim-airline'
-    Plugin 'tristen/vim-sparkup'
-    Plugin 'rking/ag.vim'
-    Plugin 'nathanaelkane/vim-indent-guides'
-    Plugin 'mhinz/vim-signify'
-    Plugin 'mbbill/undotree'
-    Plugin 'mutewinter/swap-parameters'
     Plugin 'Valloric/YouCompleteMe'
-    Plugin 'mhinz/vim-startify'
-    Plugin 'digitaltoad/vim-jade'
-    Plugin 'wavded/vim-stylus'
-    Plugin 'milkypostman/vim-togglelist'
-    Plugin 'mattn/webapi-vim'
-    Plugin 'mattn/gist-vim'
-    Plugin 'nelstrom/vim-visual-star-search'
+    Plugin 'Raimondi/delimitMate'
+
+    " Editing Utilities {{{2
+    Plugin 'scrooloose/nerdcommenter'
+    Plugin 'mutewinter/swap-parameters'
+    Plugin 'tpope/vim-abolish'
+    Plugin 'tpope/vim-surround'
     Plugin 'sk1418/Join'
-    Plugin 'benmills/vimux'
-    Plugin 'rizzatti/funcoo.vim'
-    Plugin 'rizzatti/dash.vim'
-    Plugin 'osyo-manga/vim-anzu'
+    Plugin 'godlygeek/tabular'
+
+    " Yank, Undo, History {{{2
+    Plugin 'maxbrunsfeld/vim-yankstack'
+    Plugin 'tpope/vim-repeat'
+    Plugin 'mbbill/undotree'
+
+    " Syntax & Checking {{{2
+    Plugin 'scrooloose/syntastic'
+
+    " Language: CSS & Friends {{{2
+    Plugin 'groenewege/vim-less'
+    Plugin 'wavded/vim-stylus'
+
+    " Language: HTML & Friends {{{2
+    Plugin 'tristen/vim-sparkup'
+    Plugin 'digitaltoad/vim-jade'
     Plugin 'Valloric/MatchTagAlways'
-    Plugin 'kballenegger/vim-autoreadwatch'
+    Plugin 'mustache/vim-mustache-handlebars'
+
+    " Language: JavaScript, Friends {{{2
+    Plugin 'pangloss/vim-javascript'
+    Plugin 'marijnh/tern_for_vim'
+    Plugin 'elzr/vim-json'
+    Plugin 'maksimr/vim-jsbeautify'
+    Plugin 'kchmck/vim-coffee-script'
+    Plugin 'gkz/vim-ls'
+
+    " Language: Markdown {{{2
+    Plugin 'tpope/vim-markdown'
+
+    " Language: Puppet {{{2
+    Plugin 'rodjek/vim-puppet'
+
+    " Language: Python {{{2
     Plugin 'klen/python-mode'
-    Plugin 'tpope/vim-unimpaired'
-    Plugin 'gregsexton/gitv'
+
+    " Misc Utilities {{{2
+    Plugin 'milkypostman/vim-togglelist'
+    Plugin 'benmills/vimux'
+    Plugin 'rizzatti/dash.vim'
+    Plugin 'kballenegger/vim-autoreadwatch'
     Plugin 'tpope/vim-speeddating'
     "Plugin 'tpope/vim-endwise' - is there a way to enable it only for certain
     "filetypes?
-    Plugin 'tpope/vim-markdown'
     Plugin 'editorconfig/editorconfig-vim'
-    Plugin 'rodjek/vim-puppet'
-    Plugin 'pangloss/vim-javascript'
-    Plugin 'Raimondi/delimitMate'
-    Plugin 'marijnh/tern_for_vim'
-    Plugin 'mustache/vim-mustache-handlebars'
-    Plugin 'elzr/vim-json'
-    Plugin 'maksimr/vim-jsbeautify'
-    Plugin 'majutsushi/tagbar'
-    Plugin 'kchmck/vim-coffee-script'
-    Plugin 'groenewege/vim-less'
-    Plugin 'gkz/vim-ls'
 
+    " Install plugins if bootstrapping {{{1
     " bootstrap vundle if we have to
     if s:bootstrap_vundle
         " install all plugins
@@ -130,23 +166,16 @@ if s:has_vundle
     endif   " s:bootstrap_vundle
 endif   " s:has_vundle
 
-" Favorite colorscheme
+" Colorscheme {{{1
 let g:solarized_termcolors=256
 let g:kolor_underlined=1
 silent! colorscheme solarized
 
+" Basic Settings {{{1
 " Detects file type and enables language-specific indentation
 " Syntax highlighting always on
 syntax on
 filetype plugin indent on
-
-" Setup airline
-set encoding=utf-8
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts=1
-
-" Ruler always off
-"set noruler
 
 " statusline always visible
 set laststatus=2
@@ -176,15 +205,22 @@ set incsearch
 set ignorecase
 set smartcase
 
+" Enable line numbers.
+set number
+
+" Enable current-line highlighting
+set cursorline
+
 " Wildmenu FTW
 set wildmenu
-
-" Key bindings
-map <F10> :qa<return>
 
 " Virtual edit for visual blocks.
 set virtualedit=block
 
+" Key Bindings {{{1
+map <F10> :qa<return>
+
+" C Syntax {{{1
 " Use C syntax for .w files
 let g:filetype_w = 'c'
 
@@ -203,20 +239,35 @@ autocmd FileType c,h,cpp,hpp,w set cindent
 "   - t0: indent a function return type declaration 0 chars from the margin.
 set cinoptions=l1(0U1t0
 
-" plugin configurations
+" Automatic formatting of comments in C
+" Non-default options here are:
+"   - a: does automatic formatting of comment paragraphs.
+"   - 1: prefers to line wrap before 1-letter words.
+autocmd FileType c,h,cpp,hpp,w set formatoptions=acroql1
+
+" Plugin Configurations {{{1
 if s:has_vundle
+    " bling/vim-airline {{{2
+    set encoding=utf-8
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline_powerline_fonts=1
+
+    " kien/ctrlp.vim {{{2
     " runtimepath for CtrlP
     set runtimepath^=~/.vim/bundle/ctrlp.vim
 
     " open CtrlP in mixed mode by default
     let g:ctrlp_cmd = 'CtrlPMixed'
 
+    " scrooloose/nerdtree {{{2
     " Mapping for NERDTree
     nnoremap <Leader>n :NERDTreeToggle<CR>
 
+    " mbbill/undotree {{{2
     " Mapping for undotree
     nnoremap <F5> :UndotreeToggle<CR>
 
+    " godlygeek/tabular {{{2
     " Tabularize mappings.
     if exists(":Tabularize")
         nmap <Leader>a= :Tabularize /=<CR>
@@ -225,9 +276,11 @@ if s:has_vundle
         vmap <Leader>a: :Tabularize /:\zs<CR>
     endif   " exists(":Tabularize")
 
+    " SirVer/ultisnips {{{2
     " UltiSnips config to avoid conflict with YouCompleteMe.
     let g:UltiSnipsExpandTrigger = "<C-j>"
 
+    " mhinz/vim-startify {{{2
     " vim-startify custom header
     let g:startify_custom_header = [
     \ "        ________ ++     ________",
@@ -248,13 +301,7 @@ if s:has_vundle
     \ "",
     \ ]
 
-    " Enable line numbers.
-    set number
-
-    " Enable current-line highlighting
-    set cursorline
-
-    " python-mode
+    " klen/python-mode {{{2
     let g:pymode_rope = 0
     let g:pymode_lint = 0
     let g:pymode_lint_write = 0
@@ -262,10 +309,12 @@ if s:has_vundle
     let g:pymode_syntax = 1
     let g:pymode_syntax_all = 1
 
+    " Valloric/YouCompleteMe {{{2
     " Close preview window when done inserting.
     let g:ycm_add_preview_to_completeopt = 1
     let g:ycm_autoclose_preview_window_after_insertion = 1
 
+    " osyo-manga/vim-anzu {{{2
     " anzu setup (plugin that shows number of occurrences when searching)
     " mapping
     nmap n <Plug>(anzu-n-with-echo)
@@ -279,36 +328,30 @@ if s:has_vundle
     " statusline
     set statusline=%{anzu#search_status()}
 
-    " delimitMate stuff
+    " Raimondi/delimitMate {{{2
     let delimitMate_expand_cr = 2
     let delimitMate_expand_space = 1
     let delimitMate_jump_expansion = 1
     let delimitMate_balance_matchpairs = 1
 
-    " syntastic stuff
+    " scrooloose/syntastic {{{2
     let g:syntastic_mode_map = { 'mode': 'active',
                                \ 'active_filetypes': [],
                                \ 'passive_filetypes': ['html'] }
 
-    " Dash search
+    " rizzatti/dash.vim {{{2
     nmap <Leader>] <Plug>DashSearch
     vmap <Leader>] <Plug>DashSearch
 
-    " Tagbar stuff
+    " majutsushi/tagbar {{{2
     nnoremap <Leader>t :TagbarToggle<CR>
 
-    " Fugitive stuff
+    " tpope/vim-fugitive {{{2
     nnoremap <F7> :Gstatus<CR>
 
-    " Rainbow Parenthesis
+    " kien/rainbow_parentheses.vim {{{2
     au VimEnter * RainbowParenthesesToggle
     au Syntax * RainbowParenthesesLoadRound
     au Syntax * RainbowParenthesesLoadSquare
     au Syntax * RainbowParenthesesLoadBraces
 endif   " s:has_vundle
-
-" Automatic formatting of comments in C
-" Non-default options here are:
-"   - a: does automatic formatting of comment paragraphs.
-"   - 1: prefers to line wrap before 1-letter words.
-autocmd FileType c,h,cpp,hpp,w set formatoptions=acroql1
