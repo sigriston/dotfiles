@@ -97,6 +97,7 @@ if s:has_vundle
     Plugin 'nathanaelkane/vim-indent-guides'
     Plugin 'mhinz/vim-startify'
     Plugin 'qstrahl/vim-matchmaker'
+    Plugin 'jszakmeister/vim-togglecursor'
 
     " Completion & Snippets {{{2
     Plugin 'SirVer/ultisnips'
