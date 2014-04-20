@@ -158,6 +158,7 @@ if s:has_vundle
     "filetypes?
     Plugin 'editorconfig/editorconfig-vim'
     Plugin 'justinmk/vim-gtfo'
+    Plugin 'sk1418/HowMuch'
 
     " Install plugins if bootstrapping {{{1
     " bootstrap vundle if we have to
