@@ -172,7 +172,6 @@ if s:has_vundle
 endif   " s:has_vundle
 
 " Colorscheme {{{1
-let g:solarized_termcolors=256
 let g:kolor_underlined=1
 silent! colorscheme solarized
 
