@@ -142,6 +142,7 @@ if s:has_vundle
     Plugin 'kchmck/vim-coffee-script'
     Plugin 'gkz/vim-ls'
     Plugin '29decibel/vim-stringify'
+    Plugin 'othree/javascript-libraries-syntax.vim'
 
     " Language: Markdown {{{2
     Plugin 'tpope/vim-markdown'
@@ -377,4 +378,8 @@ if s:has_vundle
     " sjl/clam.vim {{{2
     nnoremap ! :Clam<space>
     vnoremap ! :ClamVisual<space>
+
+    " othree/javascript-libraries-syntax.vim {{{2
+    let g:used_javascript_libs='jquery,underscore'
+
 endif   " s:has_vundle
