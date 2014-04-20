@@ -163,6 +163,7 @@ if s:has_vundle
     Plugin 'editorconfig/editorconfig-vim'
     Plugin 'justinmk/vim-gtfo'
     Plugin 'sk1418/HowMuch'
+    Plugin 'sjl/clam.vim'
 
     " Install plugins if bootstrapping {{{1
     " bootstrap vundle if we have to
@@ -372,4 +373,8 @@ if s:has_vundle
 
     " qstrahl/vim-matchmaker {{{2
     let g:matchmaker_enable_startup = 1
+
+    " sjl/clam.vim {{{2
+    nnoremap ! :Clam<space>
+    vnoremap ! :ClamVisual<space>
 endif   " s:has_vundle
