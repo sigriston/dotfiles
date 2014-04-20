@@ -96,6 +96,7 @@ if s:has_vundle
     Plugin 'bling/vim-airline'
     Plugin 'nathanaelkane/vim-indent-guides'
     Plugin 'mhinz/vim-startify'
+    Plugin 'qstrahl/vim-matchmaker'
 
     " Completion & Snippets {{{2
     Plugin 'SirVer/ultisnips'
@@ -367,4 +368,7 @@ if s:has_vundle
 
     " 29decibel/vim-stringify {{{2
     map <leader>s :call Stringify()<CR>
+
+    " qstrahl/vim-matchmaker {{{2
+    let g:matchmaker_enable_startup = 1
 endif   " s:has_vundle
