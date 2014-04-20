@@ -59,6 +59,7 @@ if s:has_vundle
     " Libraries {{{2
     Plugin 'mattn/webapi-vim'
     Plugin 'rizzatti/funcoo.vim'
+    Plugin 'drmikehenry/vim-fixkey'
 
     " Colorschemes {{{2
     Plugin 'altercation/vim-colors-solarized'
@@ -110,6 +111,7 @@ if s:has_vundle
     Plugin 'sk1418/Join'
     Plugin 'godlygeek/tabular'
     Plugin 'gcmt/wildfire.vim'
+    Plugin 'matze/vim-move'
 
     " Yank, Undo, History {{{2
     Plugin 'maxbrunsfeld/vim-yankstack'

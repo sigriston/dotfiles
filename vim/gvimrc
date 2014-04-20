@@ -43,6 +43,9 @@ if has("gui_macvim")
     " GUI options
     set go=eigmrR
 
+    " Allow mapping of meta/option key
+    set macmeta
+
 endif
 
 " Ubuntu options
