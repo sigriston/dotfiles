@@ -37,7 +37,7 @@ endif   " <vundle is present>
 " TODO: Windows?!?
 if !s:has_vundle
     " install vundle iff git is present
-    if filereadable(glob("`which git`"))
+    if executable(glob("`which git`"))
         set nomore
         silent !mkdir -p ~/.vim/bundle
         silent !git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
@@ -175,6 +175,11 @@ if s:has_vundle
 
         " compile YCM
         silent !(cd ~/.vim/bundle/YouCompleteMe; ./install.sh)
+
+        " install tern
+        if executable(glob("`which npm`"))
+            silent !(cd ~/.vim/bundle/tern_for_vim; npm install)
+        endif   " <npm is present>
     endif   " s:bootstrap_vundle
 endif   " s:has_vundle
 
