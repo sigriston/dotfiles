@@ -84,7 +84,7 @@ if s:has_vundle
     Plugin 'mhinz/vim-signify'
     Plugin 'gregsexton/gitv'
     Plugin 'mattn/gist-vim'
-    Plugin 'jaxbot/github-issues.vim'
+    "Plugin 'jaxbot/github-issues.vim'
 
     " File Browsing {{{2
     Plugin 'scrooloose/nerdtree'
