@@ -132,6 +132,7 @@ if s:has_vundle
     Plugin 'digitaltoad/vim-jade'
     Plugin 'Valloric/MatchTagAlways'
     Plugin 'mustache/vim-mustache-handlebars'
+    Plugin 'jimmyhchan/dustjs.vim'
 
     " Language: JavaScript & Friends {{{2
     Plugin 'pangloss/vim-javascript'
@@ -386,5 +387,9 @@ if s:has_vundle
 
     " othree/javascript-libraries-syntax.vim {{{2
     let g:used_javascript_libs='jquery,underscore'
+
+    " jimmyhchan/dustjs.vim {{{2
+    let g:NERDCustomDelimiters = { 'dustjs': { 'left': '{!', 'right': '!}' } }
+    autocmd FileType dustjs let g:surround_{char2nr('d')} = "{\r}"
 
 endif   " s:has_vundle
