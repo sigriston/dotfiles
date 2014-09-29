@@ -72,6 +72,7 @@ if s:has_vundle
     " Motion {{{2
     Plugin 'Lokaltog/vim-easymotion'
     Plugin 'tpope/vim-unimpaired'
+    Plugin 'matchit.zip'
 
     " Search & Tags {{{2
     Plugin 'nelstrom/vim-visual-star-search'
@@ -114,6 +115,7 @@ if s:has_vundle
     Plugin 'godlygeek/tabular'
     Plugin 'gcmt/wildfire.vim'
     Plugin 'matze/vim-move'
+    Plugin 'Chiel92/vim-autoformat'
 
     " Yank, Undo, History {{{2
     Plugin 'maxbrunsfeld/vim-yankstack'
@@ -128,7 +130,8 @@ if s:has_vundle
     Plugin 'wavded/vim-stylus'
 
     " Language: HTML & Friends {{{2
-    Plugin 'tristen/vim-sparkup'
+    Plugin 'othree/html5.vim'
+    Plugin 'mattn/emmet-vim'
     Plugin 'digitaltoad/vim-jade'
     Plugin 'Valloric/MatchTagAlways'
     Plugin 'mustache/vim-mustache-handlebars'
@@ -144,6 +147,9 @@ if s:has_vundle
     Plugin 'gkz/vim-ls'
     Plugin '29decibel/vim-stringify'
     Plugin 'othree/javascript-libraries-syntax.vim'
+    Plugin 'matthewsimo/angular-vim-snippets'
+    Plugin 'claco/jasmine.vim'
+    Plugin 'burnettk/vim-angular'
 
     " Language: Markdown {{{2
     Plugin 'tpope/vim-markdown'
@@ -392,5 +398,8 @@ if s:has_vundle
     " jimmyhchan/dustjs.vim {{{2
     let g:NERDCustomDelimiters = { 'dustjs': { 'left': '{!', 'right': '!}' } }
     autocmd FileType dustjs let g:surround_{char2nr('d')} = "{\r}"
+
+    " Chiel92/vim-autoformat {{{2
+    noremap <F3> :Autoformat<CR><CR>
 
 endif   " s:has_vundle
