@@ -23,6 +23,7 @@
      ess
      (git :variables
           git-gutter-use-fringe t)
+     github
      html
      javascript
      markdown
@@ -30,6 +31,7 @@
      python
      shell
      syntax-checking
+     version-control
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -39,6 +41,7 @@
    '(
      editorconfig
      jade-mode
+     yaml-mode
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -153,9 +156,6 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
-  (setq-default
-   git-enable-github-support t
-   )
   )
 
 (defun dotspacemacs/config ()
