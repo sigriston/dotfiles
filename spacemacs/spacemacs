@@ -29,9 +29,15 @@
      markdown
      org
      python
+     rust
      shell
+     shell-scripts
+     sql
+     spell-checking
      syntax-checking
+     unimpaired
      version-control
+     yaml
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -40,10 +46,8 @@
    dotspacemacs-additional-packages
    '(
      editorconfig
-     fish-mode
      graphviz-dot-mode
      jade-mode
-     yaml-mode
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
