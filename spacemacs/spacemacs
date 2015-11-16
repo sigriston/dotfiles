@@ -171,6 +171,8 @@ layers configuration."
   ;; Have relative line numbers when programming
   (add-hook 'prog-mode-hook 'linum-mode)
   (linum-relative-toggle)
+  (load "editorconfig")
+  (editorconfig-mode 1)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
