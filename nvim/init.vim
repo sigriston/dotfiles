@@ -26,6 +26,10 @@ endif
 " Use cursor shapes in terminal
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
+" Line numbers - current line has absolute number, other lines have relative
+set nu
+set rnu
+
 
 " PLUGINS {{{1
 call plug#begin()
@@ -44,6 +48,7 @@ function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 
 " Commenters {{{2
 Plug 'tpope/vim-commentary'
@@ -62,9 +67,14 @@ Plug 'mhinz/vim-grepper'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'osyo-manga/vim-anzu'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'gcmt/wildfire.vim'
 
 " Quickfix {{{2
 Plug 'yssl/QFEnter'
+Plug 'milkypostman/vim-togglelist'
 
 " Statusline {{{2
 Plug 'vim-airline/vim-airline'
@@ -74,13 +84,17 @@ Plug 'mbbill/undotree'
 
 " Version Control {{{2
 Plug 'tpope/vim-fugitive'
-Plug 'jaxbot/github-issues.vim'
+" Plug 'jaxbot/github-issues.vim' - slows down fugitive too much
 Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
 
 " Misc {{{2
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'matze/vim-move'
+Plug 'neomake/neomake'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'rizzatti/dash.vim'
 
 " Snippets {{{2
 Plug 'SirVer/ultisnips'
@@ -135,3 +149,30 @@ nnoremap <F5> :UndotreeToggle<CR>
 
 " tpope/vim-fugitive {{{2
 nnoremap <F7> :Gstatus<CR>
+
+" osyo-manga/vim-anzu {{{2
+" anzu setup (plugin that shows number of occurrences when searching)
+" mapping
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
+
+" clear status
+nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+
+" statusline
+set statusline=%{anzu#search_status()}
+
+" kien/rainbow_parentheses.vim {{{2
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" matze/vim-move {{{2
+let g:move_key_modifier = 'C'
+
+" rizzatti/dash.vim {{{2
+nmap <Leader>] <Plug>DashSearch
+vmap <Leader>] <Plug>DashSearch
