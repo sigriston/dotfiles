@@ -19,3 +19,7 @@ call plug#begin()
 Plug 'altercation/vim-colors-solarized'
 Plug 'sheerun/vim-polyglot'
 call plug#end()
+
+" Default colorscheme
+set background=dark
+colorscheme solarized
