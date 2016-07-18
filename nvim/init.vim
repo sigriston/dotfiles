@@ -9,3 +9,13 @@ if (has("termguicolors"))
   " ... and this is for neovim >= 0.1.5
   set termguicolors
 endif
+
+" Use cursor shapes in terminal
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+
+" PLUGINS
+call plug#begin()
+Plug 'altercation/vim-colors-solarized'
+Plug 'sheerun/vim-polyglot'
+call plug#end()
