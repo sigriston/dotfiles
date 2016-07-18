@@ -30,6 +30,22 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set nu
 set rnu
 
+" Expands tabs/indents to 2 characters
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+" Search smartcase options
+set ignorecase
+set smartcase
+
+" Enable current-line highlighting
+set cursorline
+
+" Virtual edit for visual blocks.
+set virtualedit=block
+
 
 " PLUGINS {{{1
 call plug#begin()
@@ -100,6 +116,9 @@ Plug 'rizzatti/dash.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'sheerun/vim-polyglot'
+
+" Language: JavaScript
+Plug 'ahmedelgabri/vim-ava-snippets'
 call plug#end()
 
 
