@@ -104,6 +104,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
 
+" Tmux {{{2
+Plug 'christoomey/vim-tmux-navigator'
+
 " Misc {{{2
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -195,3 +198,12 @@ let g:move_key_modifier = 'C'
 " rizzatti/dash.vim {{{2
 nmap <Leader>] <Plug>DashSearch
 vmap <Leader>] <Plug>DashSearch
+
+" christoomey/vim-tmux-navigator {{{2
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <NUL>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <NUL>j :TmuxNavigateDown<cr>
+nnoremap <silent> <NUL>k :TmuxNavigateUp<cr>
+nnoremap <silent> <NUL>l :TmuxNavigateRight<cr>
+nnoremap <silent> <NUL><Leader> :TmuxNavigatePrevious<cr>
