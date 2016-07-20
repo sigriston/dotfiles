@@ -121,6 +121,7 @@ Plug 'honza/vim-snippets'
 Plug 'sheerun/vim-polyglot'
 
 " Language: JavaScript
+Plug 'jaawerth/neomake-local-eslint-first'
 Plug 'ahmedelgabri/vim-ava-snippets'
 call plug#end()
 
@@ -207,3 +208,6 @@ nnoremap <silent> <NUL>j :TmuxNavigateDown<cr>
 nnoremap <silent> <NUL>k :TmuxNavigateUp<cr>
 nnoremap <silent> <NUL>l :TmuxNavigateRight<cr>
 nnoremap <silent> <NUL><Leader> :TmuxNavigatePrevious<cr>
+
+" neomake/neomake {{{2
+autocmd! BufWritePost * Neomake
