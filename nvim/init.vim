@@ -203,11 +203,11 @@ vmap <Leader>] <Plug>DashSearch
 " christoomey/vim-tmux-navigator {{{2
 let g:tmux_navigator_no_mappings = 1
 
-nnoremap <silent> <NUL>h :TmuxNavigateLeft<cr>
-nnoremap <silent> <NUL>j :TmuxNavigateDown<cr>
-nnoremap <silent> <NUL>k :TmuxNavigateUp<cr>
-nnoremap <silent> <NUL>l :TmuxNavigateRight<cr>
-nnoremap <silent> <NUL><Leader> :TmuxNavigatePrevious<cr>
+nnoremap <C-s>h :TmuxNavigateLeft<cr>
+nnoremap <C-s>j :TmuxNavigateDown<cr>
+nnoremap <C-s>k :TmuxNavigateUp<cr>
+nnoremap <C-s>l :TmuxNavigateRight<cr>
+nnoremap <C-s><Leader> :TmuxNavigatePrevious<cr>
 
 " neomake/neomake {{{2
 autocmd! BufWritePost * Neomake
