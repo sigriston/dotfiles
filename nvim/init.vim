@@ -123,6 +123,9 @@ Plug 'sheerun/vim-polyglot'
 " Language: JavaScript
 Plug 'jaawerth/neomake-local-eslint-first'
 Plug 'ahmedelgabri/vim-ava-snippets'
+
+" Language: Rust
+Plug 'racer-rust/vim-racer'
 call plug#end()
 
 
@@ -211,3 +214,7 @@ nnoremap <C-s><Leader> :TmuxNavigatePrevious<cr>
 
 " neomake/neomake {{{2
 autocmd! BufWritePost * Neomake
+
+" racer-rust/vim-racer {{{2
+set hidden
+let g:racer_cmd = expand("~/.cargo/bin/racer")
