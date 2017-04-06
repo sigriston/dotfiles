@@ -1,18 +1,39 @@
 [user]
-    name = Thiago Sigrist
-    email = sigrist@gmail.com
+  name = Thiago Sigrist
+  email = sigrist@gmail.com
 [core]
-    editor = nvim
+  editor = nvim
 [push]
-    default = simple
+  default = simple
+  followTags = true
 
 [color]
-    ui = true
+  ui = true
 
 [alias]
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-    st = status -sb
-    standup = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --since yesterday
+  prune = fetch --prune
+  stash-all = stash save --include-untracked
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  st = status -sb
+  standup = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --since yesterday
+
+[merge]
+  conflictstyle = diff3
+
+[status]
+  showUntrackedFiles = all
+
+[transfer]
+  fsckobjects = true
+
+# A nice little github-like colorful, split diff right in the console.
+# via http://owen.cymru/github-style-diff-in-terminal-with-icdiff/
+[diff]
+  tool = icdiff
+[difftool]
+  prompt = false
+[difftool "icdiff"]
+  cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
 
 [hub]
-    protocol = ssh
+  protocol = ssh
