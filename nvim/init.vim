@@ -128,6 +128,9 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'sheerun/vim-polyglot'
 
+" Productivity {{{2
+Plug 'vimwiki/vimwiki'
+
 " Language: JavaScript
 Plug 'jaawerth/neomake-local-eslint-first'
 Plug 'epilande/vim-react-snippets'
