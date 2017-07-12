@@ -130,6 +130,7 @@ Plug 'sheerun/vim-polyglot'
 
 " Language: JavaScript
 Plug 'jaawerth/neomake-local-eslint-first'
+Plug 'epilande/vim-react-snippets'
 Plug 'ahmedelgabri/vim-ava-snippets'
 
 " Language: Rust
