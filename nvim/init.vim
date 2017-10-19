@@ -108,6 +108,7 @@ Plug 'mbbill/undotree'
 
 " Version Control {{{2
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 " Plug 'jaxbot/github-issues.vim' - slows down fugitive too much
 Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
