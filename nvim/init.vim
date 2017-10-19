@@ -161,10 +161,10 @@ nmap <unique> <c-p> <Plug>PickerEdit
 
 " mhinz/vim-grepper {{{2
 let g:grepper = {
-  \ 'tools': ['pt', 'git', 'grep'],
+  \ 'tools': ['rg', 'git', 'grep'],
   \ }
 nnoremap <leader>git :Grepper -tool git -noswitch<cr>
-nnoremap <leader>*   :Grepper -tool pt -cword -noprompt<cr>
+nnoremap <leader>*   :Grepper -tool rg -cword<cr>
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 
