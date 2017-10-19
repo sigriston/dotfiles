@@ -131,6 +131,9 @@ Plug 'sheerun/vim-polyglot'
 " Productivity {{{2
 Plug 'vimwiki/vimwiki'
 
+" Windowing {{{2
+Plug 'roman/golden-ratio'
+
 " Language: JavaScript
 Plug 'jaawerth/neomake-local-eslint-first'
 Plug 'epilande/vim-react-snippets'
