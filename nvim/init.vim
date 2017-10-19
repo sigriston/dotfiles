@@ -82,7 +82,7 @@ Plug 'jiangmiao/auto-pairs'
 " Plug 'Raimondi/delimitMate'
 
 " Fuzzy finders {{{2
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'srstevenson/vim-picker'
 
 " Grep tools {{{2
 Plug 'mhinz/vim-grepper'
@@ -156,8 +156,8 @@ nmap ga <Plug>(EasyAlign)
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
-" junegunn/fzf {{{2
-nnoremap <c-p> :FZF<cr>
+" srstevenson/vim-picker {{{2
+nmap <unique> <c-p> <Plug>PickerEdit
 
 " mhinz/vim-grepper {{{2
 let g:grepper = {
