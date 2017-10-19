@@ -236,3 +236,6 @@ let g:racer_cmd = expand("~/.cargo/bin/racer")
 
 " bagrat/vim-workspace {{{2
 let g:workspace_powerline_separators = 1
+
+" w0rp/ale {{{2
+let g:airline#extensions#ale#enabled = 1
