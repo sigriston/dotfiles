@@ -119,7 +119,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'matze/vim-move'
-Plug 'neomake/neomake'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rizzatti/dash.vim'
 Plug 'ryanoasis/vim-devicons'
@@ -136,8 +135,10 @@ Plug 'vimwiki/vimwiki'
 Plug 'roman/golden-ratio'
 Plug 'bagrat/vim-workspace'
 
+" Linting {{{2
+Plug 'w0rp/ale'
+
 " Language: JavaScript
-Plug 'jaawerth/neomake-local-eslint-first'
 Plug 'epilande/vim-react-snippets'
 Plug 'ahmedelgabri/vim-ava-snippets'
 
@@ -228,9 +229,6 @@ nnoremap <C-s>j :TmuxNavigateDown<cr>
 nnoremap <C-s>k :TmuxNavigateUp<cr>
 nnoremap <C-s>l :TmuxNavigateRight<cr>
 nnoremap <C-s><Leader> :TmuxNavigatePrevious<cr>
-
-" neomake/neomake {{{2
-autocmd! BufWritePost * Neomake
 
 " racer-rust/vim-racer {{{2
 set hidden
