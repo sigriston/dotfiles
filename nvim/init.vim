@@ -122,6 +122,7 @@ Plug 'matze/vim-move'
 Plug 'neomake/neomake'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rizzatti/dash.vim'
+Plug 'ryanoasis/vim-devicons'
 
 " Snippets {{{2
 Plug 'SirVer/ultisnips'
@@ -133,6 +134,7 @@ Plug 'vimwiki/vimwiki'
 
 " Windowing {{{2
 Plug 'roman/golden-ratio'
+Plug 'bagrat/vim-workspace'
 
 " Language: JavaScript
 Plug 'jaawerth/neomake-local-eslint-first'
@@ -233,3 +235,6 @@ autocmd! BufWritePost * Neomake
 " racer-rust/vim-racer {{{2
 set hidden
 let g:racer_cmd = expand("~/.cargo/bin/racer")
+
+" bagrat/vim-workspace {{{2
+let g:workspace_powerline_separators = 1
