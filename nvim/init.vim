@@ -128,6 +128,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'sheerun/vim-polyglot'
+Plug 'heavenshell/vim-jsdoc'
 
 " Productivity {{{2
 Plug 'vimwiki/vimwiki'
