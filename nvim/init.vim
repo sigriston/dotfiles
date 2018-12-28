@@ -146,6 +146,9 @@ Plug 'ahmedelgabri/vim-ava-snippets'
 
 " Language: Rust
 Plug 'racer-rust/vim-racer'
+
+" Language: Reason
+Plug 'reasonml-editor/vim-reason-plus'
 call plug#end()
 
 
