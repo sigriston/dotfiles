@@ -1,9 +1,7 @@
-fisherman/await
+edc/bass
 oh-my-fish/plugin-brew
-fisherman/fnm
 fisherman/fzf
 fisherman/get
-fisherman/get_file_age
 fisherman/getopts
 fisherman/git_util
 fisherman/gitignore
@@ -11,8 +9,8 @@ fisherman/host_info
 fisherman/humanize_duration
 fisherman/imgcat
 fisherman/last_job_id
-fisherman/menu
 fisherman/nitro
+fisherman/nvm
 fisherman/pwd_info
 fisherman/pwd_is_home
 fisherman/segment
