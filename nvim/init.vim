@@ -3,7 +3,7 @@
 " * Thiago Massariolli Sigrist's init.vim file *
 " **********************************************
 
-"    (L) Thiago Massariolli Sigrist 2007-2016
+"    (L) Thiago Massariolli Sigrist 2007-2019
 "    ----------------------------------------
 
 " **********************************************
@@ -11,20 +11,8 @@
 
 
 " Basic Settings {{{1
-" Use 24-bit (true-color) mode in Vim/Neovim.
-" Thanks joshdick/onedark.vim for the tip!
 
-if (has("nvim"))
-  " This is for neovim <= 0.1.4
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-if (has("termguicolors"))
-  " ... and this is for neovim >= 0.1.5
-  set termguicolors
-endif
-
-" Use cursor shapes in terminal
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+" NOTE - we no longer use termguicolors, just a base16 theme in the terminal
 
 " Line numbers - current line has absolute number, other lines have relative
 set nu
@@ -50,111 +38,108 @@ set virtualedit=block
 " PLUGINS {{{1
 
 " Install vim-plug automagically
+" from: https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin()
+call plug#begin('~/.local/share/nvim/plugged')
+  " Plugins use roughly the same sections as the vim-galore awesome-list
+  " https://github.com/mhinz/vim-galore/blob/master/content/plugins.md
 
-" Plugins use roughly the same sections as the vim-galore awesome-list
-" https://github.com/mhinz/vim-galore/blob/master/content/plugins.md
+  " Colorschemes {{{2
+  Plug 'chriskempson/base16-vim'
 
-" Colorschemes {{{2
-Plug 'morhetz/gruvbox'
+  " Alignment {{{2
+  Plug 'junegunn/vim-easy-align'
 
-" Alignment {{{2
-Plug 'junegunn/vim-easy-align'
+  " Code completion {{{2
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-" Code completion {{{2
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+  " Commenters {{{2
+  Plug 'tpope/vim-commentary'
 
-" Commenters {{{2
-Plug 'tpope/vim-commentary'
+  " Delimiters {{{2
+  Plug 'jiangmiao/auto-pairs'
 
-" Delimiters {{{2
-Plug 'jiangmiao/auto-pairs'
-" Plug 'Raimondi/delimitMate'
+  " Fuzzy finders {{{2
+  Plug 'srstevenson/vim-picker'
 
-" Fuzzy finders {{{2
-Plug 'srstevenson/vim-picker'
+  " Grep tools {{{2
+  Plug 'mhinz/vim-grepper'
 
-" Grep tools {{{2
-Plug 'mhinz/vim-grepper'
+  " Navigation {{{2
+  Plug 'easymotion/vim-easymotion'
+  Plug 'haya14busa/incsearch.vim'
+  Plug 'haya14busa/incsearch-easymotion.vim'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'osyo-manga/vim-anzu'
+  Plug 'kien/rainbow_parentheses.vim'
+  Plug 'gcmt/wildfire.vim'
 
-" Navigation {{{2
-Plug 'easymotion/vim-easymotion'
-Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-easymotion.vim'
-Plug 'tpope/vim-unimpaired'
-Plug 'osyo-manga/vim-anzu'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'gcmt/wildfire.vim'
+  " Quickfix {{{2
+  Plug 'yssl/QFEnter'
+  Plug 'milkypostman/vim-togglelist'
 
-" Quickfix {{{2
-Plug 'yssl/QFEnter'
-Plug 'milkypostman/vim-togglelist'
+  " Statusline {{{2
+  Plug 'vim-airline/vim-airline'
 
-" Statusline {{{2
-Plug 'vim-airline/vim-airline'
+  " Undo history {{{2
+  Plug 'mbbill/undotree'
 
-" Undo history {{{2
-Plug 'mbbill/undotree'
+  " Version Control {{{2
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rhubarb'
+  Plug 'junegunn/gv.vim'
+  Plug 'airblade/vim-gitgutter'
 
-" Version Control {{{2
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-" Plug 'jaxbot/github-issues.vim' - slows down fugitive too much
-Plug 'junegunn/gv.vim'
-Plug 'airblade/vim-gitgutter'
+  " Tmux {{{2
+  Plug 'christoomey/vim-tmux-navigator'
 
-" Tmux {{{2
-Plug 'christoomey/vim-tmux-navigator'
+  " Misc {{{2
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
+  Plug 'matze/vim-move'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'rizzatti/dash.vim'
+  Plug 'ryanoasis/vim-devicons'
 
-" Misc {{{2
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'matze/vim-move'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'rizzatti/dash.vim'
-Plug 'ryanoasis/vim-devicons'
+  " Snippets {{{2
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'heavenshell/vim-jsdoc'
 
-" Snippets {{{2
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'sheerun/vim-polyglot'
-Plug 'heavenshell/vim-jsdoc'
+  " Productivity {{{2
+  Plug 'vimwiki/vimwiki'
 
-" Productivity {{{2
-Plug 'vimwiki/vimwiki'
+  " Windowing {{{2
+  Plug 'roman/golden-ratio'
+  Plug 'bagrat/vim-workspace'
 
-" Windowing {{{2
-Plug 'roman/golden-ratio'
-Plug 'bagrat/vim-workspace'
+  " Linting {{{2
+  Plug 'w0rp/ale'
 
-" Linting {{{2
-Plug 'w0rp/ale'
+  " Language: JavaScript
+  Plug 'epilande/vim-react-snippets'
+  Plug 'ahmedelgabri/vim-ava-snippets'
 
-" Language: JavaScript
-Plug 'epilande/vim-react-snippets'
-Plug 'ahmedelgabri/vim-ava-snippets'
+  " Language: Rust
+  Plug 'racer-rust/vim-racer'
 
-" Language: Rust
-Plug 'racer-rust/vim-racer'
-
-" Language: Reason
-Plug 'reasonml-editor/vim-reason-plus'
+  " Language: Reason
+  Plug 'reasonml-editor/vim-reason-plus'
 call plug#end()
 
 
-" Default colorscheme
-set background=dark
-colorscheme gruvbox
+" Load base16 colorscheme
+source ~/.config/nvim/colorscheme.vim
+
+" set terminal background to NONE - the color will be the same but this will
+" let through urxvt's transparency
+hi Normal ctermbg=NONE
 
 " PLUGIN CONFIGURATION {{{1
 " Bindings for vim-easy-align
