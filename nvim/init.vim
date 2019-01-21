@@ -104,7 +104,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'matze/vim-move'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'rizzatti/dash.vim'
-  Plug 'ryanoasis/vim-devicons'
 
   " Snippets {{{2
   Plug 'SirVer/ultisnips'
