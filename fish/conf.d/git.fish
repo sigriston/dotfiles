@@ -1,5 +1,6 @@
 # Git Aliases
 alias cdg="cd (git root)"
+alias git="hub"
 
 # Git Abbreviations
 if status --is-interactive
