@@ -57,6 +57,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " Code completion {{{2
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ }
 
   " Commenters {{{2
   Plug 'tpope/vim-commentary'
@@ -124,9 +128,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Language: JavaScript
   Plug 'epilande/vim-react-snippets'
   Plug 'ahmedelgabri/vim-ava-snippets'
-
-  " Language: Rust
-  Plug 'racer-rust/vim-racer'
 
   " Language: Reason
   Plug 'reasonml-editor/vim-reason-plus'
@@ -219,9 +220,20 @@ nnoremap <C-s>k :TmuxNavigateUp<cr>
 nnoremap <C-s>l :TmuxNavigateRight<cr>
 nnoremap <C-s><Leader> :TmuxNavigatePrevious<cr>
 
-" racer-rust/vim-racer {{{2
+" autozimu/LanguageClient-neovim {{{2
 set hidden
-let g:racer_cmd = expand("~/.cargo/bin/racer")
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " bagrat/vim-workspace {{{2
 let g:workspace_powerline_separators = 1
