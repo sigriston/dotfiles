@@ -116,7 +116,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " Windowing {{{2
   Plug 'roman/golden-ratio'
-  Plug 'bagrat/vim-workspace'
+  Plug 'bagrat/vim-buffet'
 
   " Linting {{{2
   Plug 'dense-analysis/ale'
@@ -216,8 +216,9 @@ nnoremap <C-s>k :TmuxNavigateUp<cr>
 nnoremap <C-s>l :TmuxNavigateRight<cr>
 nnoremap <C-s><Leader> :TmuxNavigatePrevious<cr>
 
-" bagrat/vim-workspace {{{2
-let g:workspace_powerline_separators = 1
+" bagrat/vim-buffet {{{2
+let g:buffet_powerline_separators = 1
+let g:buffet_show_index = 1
 
 " dense-analysis/ale {{{2
 let g:airline#extensions#ale#enabled = 1
