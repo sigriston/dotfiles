@@ -50,7 +50,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   " https://github.com/mhinz/vim-galore/blob/master/content/plugins.md
 
   " Colorschemes {{{2
-  Plug 'chriskempson/base16-vim'
+  Plug 'lifepillar/vim-gruvbox8'
 
   " Alignment {{{2
   Plug 'junegunn/vim-easy-align'
@@ -130,8 +130,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 call plug#end()
 
 
-" Load base16 colorscheme
-source ~/.config/nvim/colorscheme.vim
+" Load gruvbox colorscheme
+colorscheme gruvbox8_hard
 
 " set terminal background to NONE - the color will be the same but this will
 " let through urxvt's transparency
@@ -149,7 +149,7 @@ nmap ga <Plug>(EasyAlign)
 let g:deoplete#enable_at_startup = 1
 
 " srstevenson/vim-picker {{{2
-nmap <unique> <c-p> <Plug>PickerEdit
+nmap <unique> <c-p> <Plug>(PickerEdit)
 
 " mhinz/vim-grepper {{{2
 let g:grepper = {
